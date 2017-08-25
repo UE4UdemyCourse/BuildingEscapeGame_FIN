@@ -2,6 +2,7 @@
 
 #include "BuildingEscape.h"
 #include "PositionReporter.h"
+#include "GameFramework/Actor.h"
 
 
 // Sets default values for this component's properties
@@ -10,8 +11,6 @@ UPositionReporter::UPositionReporter()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-	UE_LOG(LogTemp, Warning, TEXT("Position reporting for duty on Chair!"));
 }
 
 
@@ -20,7 +19,9 @@ void UPositionReporter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	FString ObjectName = GetOwner()->GetName();
+	UE_LOG(LogTemp, Warning, TEXT("Position report for %s"), *ObjectName);
+
 	
 }
 
